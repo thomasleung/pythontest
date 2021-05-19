@@ -1,0 +1,40 @@
+
+n_rows, n_columns= input().split()
+n_rows=int(n_rows)
+n_columns=int(n_columns)
+matrix=[]
+
+for i in range(n_rows):   
+ matrix.append([(j) for j in input().split()])
+
+wordlist=['cat', 'dog']
+
+def horizontal_search(matrix,word):
+  for i in range(n_rows):
+    for line in matrix:
+      if word in ''.join(line):
+        print('found',word, 'in horizontal')
+        return
+
+def vertical_search(matrix,word):
+    l=[]
+    for i in range(len(matrix[0])):
+            l.append(''.join([row[i] for row in matrix]))
+            for line in l:
+                if word in line:   #finding index
+#                    row_index=i
+#                    column_index=line.index(word[0])
+                    print('found',word, 'in vertical')
+    return
+
+# vertical_search(matrix, word)
+
+for k in wordlist:
+  horizontal_search(matrix,k)
+  print(vertical_search(matrix,k))
+
+
+#for i in range(n_rows):
+#    for j in range(n_columns):
+#        print(matrix[i][j], end = " ")
+#    print( )
