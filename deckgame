@@ -1,0 +1,41 @@
+n = 52
+
+numberList=[]
+bottom=[]
+top=[]
+
+def initDeck(n):            #puts the variable input 'n' into a list
+    numberList = [] 
+    for i in range(n):
+        numberList.append(i+1)
+    print("initial deck:      "+str(numberList))
+
+    return numberList
+
+def cutDeck(numberList):         #Splits up the deck evenly. If odd number of  
+    split= len(numberList)//2                  #decks, there is 1 card added to the bottom pile
+    if len(numberList)%2==0:
+        bottom= numberList[0:split]
+        top= numberList[split:len(numberList)]
+    if len(numberList)%2==1:
+        bottom= numberList[0:split+1]
+        top= numberList[split+1:len(numberList)]
+
+    return bottom, top
+
+def shuffleDeck(bottom, top):  #Shuffles the deck by taking a card one by one
+  #  n=0                       #into a deck then using that deck to update 'numberList'
+    split= int(len(numberList)//2)
+    for l in split:
+      numberList.append(bottom[n])
+      numberList.append(top[n])
+#    if len(numberList)%2!=0:
+#        numberList.append(top[n])      
+    return numberList
+
+
+numberList = initDeck(n)
+bottom, top = cutDeck(numberList)
+print(bottom)
+print(top)
+print(shuffleDeck(bottom, top))
